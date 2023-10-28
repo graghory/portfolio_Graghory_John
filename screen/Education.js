@@ -1,9 +1,15 @@
 import React from 'react';
-import {ImageBackground, Text, View, StyleSheet, Image} from 'react-native';
+import {ImageBackground, Text, View, StyleSheet, Image, Dimensions} from 'react-native';
+
+const isPortrait = () => {
+  const { height, width } = Dimensions.get('window');
+  return height > width;
+};
+
 
 function Education() {
   return (
-    <View>
+    <View style={isPortrait() ? styles.portraitContainer : styles.landscapeContainer}>
       <ImageBackground source={require('../Assets/Education.png')}>
         <View>
           <Text style={style.heading}>Education</Text>
@@ -47,7 +53,7 @@ function Education() {
         {/* This is a Arignar anna Detail */}
         <View style={style.title}>
           <Text style={style.titlename}>2017</Text>
-          <Image source={require('../Assets/Arignar.png')}></Image>
+          <Image source={require('../Assets/Arignar.png')} style={{width:'77%'}} ></Image>
         </View>
         <View style={style.Content}>
           <Text style={style.Con}>
